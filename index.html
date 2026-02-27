@@ -152,6 +152,8 @@ nav {
   margin: 0 auto 24px;
   animation: chiliFloat 4s ease-in-out infinite;
   filter: drop-shadow(0 0 30px rgba(255,60,0,0.8));
+  object-fit: contain;
+  display: block;
 }
 @keyframes chiliFloat {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
@@ -861,23 +863,12 @@ footer {
   <div class="particles" id="particles"></div>
 
   <div class="hero-content">
-    <svg class="hero-chili" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 16 C56 17 68 28 72 44 C78 64 74 86 66 100 C60 111 54 119 52 130 C50 122 52 113 54 105 C56 97 59 90 60 80 C61 70 59 57 56 44 C52 30 46 18 50 16Z" fill="url(#cg)"/>
-      <path d="M50 16 C44 17 36 26 35 38 C33 52 38 70 44 83 C48 93 51 101 50 111" stroke="#cc2200" stroke-width="1" stroke-opacity="0.5"/>
-      <path d="M50 8 C50 8 55 2 58 -3 C60 -7 57 -11 54 -9 C52 -7 51 -2 50 3" stroke="#1a5500" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-      <path d="M50 5 C44 0 40 4 42 9 C44 13 49 12 50 5Z" fill="#1a4400"/>
-      <ellipse cx="51" cy="60" rx="7" ry="5" fill="rgba(0,0,0,0.3)"/>
-      <circle cx="48" cy="59" r="2" fill="#ff1100"/>
-      <circle cx="54" cy="59" r="2" fill="#ff1100"/>
-      <path d="M47 65 C49 68 53 68 55 65" stroke="#cc0000" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-      <defs>
-        <linearGradient id="cg" x1="35" y1="16" x2="72" y2="130" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#dd3300"/>
-          <stop offset="50%" stop-color="#ff1a00"/>
-          <stop offset="100%" stop-color="#7a0000"/>
-        </linearGradient>
-      </defs>
-    </svg>
+    <!-- Bhoot Jolokia real image replacing SVG chili -->
+    <img
+      class="hero-chili"
+      src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/bhoot_jolokia-removebg-preview.png?raw=true"
+      alt="Bhoot Jolokia"
+    />
 
     <div class="hero-tagline-top">✦ Panjabari Road, Guwahati, Assam ✦</div>
     <div class="hero-title">BHOOT<br>JOLOKIA</div>
@@ -978,7 +969,10 @@ footer {
   <div class="menu-grid active" id="tab-momos">
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&q=80" alt="Chicken Steamed Momos" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🥟</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Chicke%20Steam%20momo.png?raw=true"
+          alt="Chicken Steamed Momos"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🥟</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Chicken Steamed Momos [5 Pcs]</div>
@@ -988,7 +982,10 @@ footer {
     </div>
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80" alt="Chicken Fried Momos" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🥟</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Chicke%20Fried%20momo.png?raw=true"
+          alt="Chicken Fried Momos"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🥟</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Chicken Fried Momos [5 Pcs]</div>
@@ -1002,7 +999,10 @@ footer {
   <div class="menu-grid" id="tab-rolls">
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&q=80" alt="Chicken Roll" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🌯</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Chicken%20Roll.png?raw=true"
+          alt="Chicken Roll"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🌯</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Chicken Roll</div>
@@ -1016,7 +1016,10 @@ footer {
   <div class="menu-grid" id="tab-chowmein">
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&q=80" alt="Veg Chowmein" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍜</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Veg%20Chowmein.png?raw=true"
+          alt="Veg Chowmein"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍜</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Veg Chowmein</div>
@@ -1026,7 +1029,10 @@ footer {
     </div>
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&q=80" alt="Egg Chowmein" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍜</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Egg%20Chowmein.png?raw=true"
+          alt="Egg Chowmein"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍜</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Egg Chowmein</div>
@@ -1036,7 +1042,10 @@ footer {
     </div>
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=400&q=80" alt="Chicken Chowmein" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍜</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Chicken%20Chowmein.png?raw=true"
+          alt="Chicken Chowmein"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍜</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Chicken Chowmein</div>
@@ -1057,7 +1066,10 @@ footer {
   <div class="menu-grid" id="tab-rice">
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Veg Fried Rice" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍚</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Veg%20Fried%20.png?raw=true"
+          alt="Veg Fried Rice"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍚</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Veg Fried Rice</div>
@@ -1067,7 +1079,10 @@ footer {
     </div>
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80" alt="Egg Fried Rice" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍚</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Egg%20Fried%20Rice.png?raw=true"
+          alt="Egg Fried Rice"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍚</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Egg Fried Rice</div>
@@ -1077,7 +1092,10 @@ footer {
     </div>
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&q=80" alt="Chicken Fried Rice" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍚</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Chicken%20Fried%20Rice.png?raw=true"
+          alt="Chicken Fried Rice"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍚</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Chicken Fried Rice</div>
@@ -1098,7 +1116,10 @@ footer {
   <div class="menu-grid" id="tab-sides">
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=400&q=80" alt="Fried Chicken" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍗</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Fried%20Chicken%20%5B5%20Pcs%5D.png?raw=true"
+          alt="Fried Chicken"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🍗</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Fried Chicken [5 Pcs]</div>
@@ -1108,7 +1129,10 @@ footer {
     </div>
     <div class="menu-card">
       <div class="menu-card-img-wrap">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&q=80" alt="Chilli Chicken" onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🌶️</div>'">
+        <img class="menu-card-img"
+          src="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images/Chilli%20Chicken%20Dry.png?raw=true"
+          alt="Chilli Chicken Dry Fry"
+          onerror="this.parentElement.innerHTML='<div class=\'menu-card-img-placeholder\'>🌶️</div>'">
       </div>
       <div class="menu-card-body">
         <div class="menu-card-name">Chilli Chicken Dry Fry [5 Pcs]</div>
