@@ -136,7 +136,7 @@ nav {
 
 .hero-content {
   position: relative;
-
+  z-index: 2;
   text-align: center;
   padding: 0px;
   animation: heroIn 1.5s ease forwards;
@@ -149,8 +149,7 @@ nav {
 .hero-chili {
   width: 540px;
   height: 540px;
-  margin: 1px auto 5px;
-  z-index: 2;
+  margin: 5px auto 5px;
   animation: chiliFloat 3s ease-in-out infinite;
   filter: drop-shadow(0 0 60px rgba(255,60,0,0.9));
   object-fit: contain;
@@ -167,20 +166,24 @@ nav {
   letter-spacing: 8px;
   color: var(--ember);
   margin-bottom: 8px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .hero-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(36px, 7vw, 80px);
-  font-weight: 900;
+  font-weight: 1000;
   line-height: 0.95;
   background: linear-gradient(180deg, var(--gold) 0%, var(--ember) 40%, var(--fire) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 4px;
+  margin-top: 4px;
   margin-bottom: 4px;
+
+  position: relative;   /* important */
+  z-index: 9999;        /* sabse upar lane ke liye */
 }
 
 .hero-title-sub {
@@ -191,6 +194,7 @@ nav {
   margin-bottom: 14px;
   font-weight: 400;
 }
+
 
 .hero-divider {
   display: flex;
