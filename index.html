@@ -1070,7 +1070,10 @@ window.addEventListener('scroll', () => {
   position: fixed; inset: 0; z-index: 9998;
   display: flex; align-items: flex-end; justify-content: flex-end;
   padding: 100px 28px 28px; pointer-events: none;
+  /* Ensure overlay never blocks the Zomato float on the left */
+  justify-content: flex-end;
 }
+.catchy-overlay > * { pointer-events: all; }
 .catchy-popup-wrap {
   position: relative;
   max-width: 370px; width: 100%;
@@ -1190,7 +1193,6 @@ window.addEventListener('scroll', () => {
 .catchy-order-btn .flame-icon { font-size: 14px; }
 
 .zomato-float {
-  position: fixed; bottom: 28px; left: 28px; z-index: 9997;
   width: 58px; height: 58px;
   background: #e23744;
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -1199,6 +1201,9 @@ window.addEventListener('scroll', () => {
   transition: transform 0.25s, box-shadow 0.25s;
   animation: zomatoPulse 2.8s ease-in-out infinite;
   overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(226,55,68,0.3);
+  touch-action: manipulation;
 }
 .zomato-float:hover {
   transform: scale(1.12);
@@ -1229,19 +1234,74 @@ window.addEventListener('scroll', () => {
 </style>
 
 <!-- Zomato Float -->
-<div style="position:fixed;bottom:28px;left:28px;z-index:9997;display:flex;flex-direction:column;align-items:center;gap:5px;">
+<style>
+.zomato-float-wrap {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  pointer-events: all;
+}
+.zomato-float-wrap .zomato-float {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  pointer-events: all !important;
+  -webkit-tap-highlight-color: rgba(226,55,68,0.3);
+  touch-action: manipulation;
+}
+.zomato-float-wrap .zf-order-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  background: #e23744;
+  padding: 5px 12px;
+  border-radius: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(226,55,68,0.5);
+  display: block;
+  text-align: center;
+  pointer-events: all !important;
+  -webkit-tap-highlight-color: rgba(226,55,68,0.3);
+  touch-action: manipulation;
+  cursor: pointer;
+}
+.zomato-float-wrap .zf-order-label:active {
+  background: #c52f3a;
+  transform: scale(0.97);
+}
+@media (max-width: 768px) {
+  .zomato-float-wrap {
+    bottom: 20px;
+    left: 16px;
+    z-index: 10000;
+  }
+  .zomato-float-wrap .zomato-float {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+</style>
+<div class="zomato-float-wrap">
   <a class="zomato-float"
      href="http://zoma.to/r/22247880"
      target="_blank" rel="noopener"
-     onclick="return handleOrder(event)"
-     style="position:relative;bottom:auto;left:auto;">
+     onclick="return handleOrder(event)">
     <span style="font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:26px;color:#ffffff;letter-spacing:-1px;line-height:1;user-select:none;">Z</span>
     <span class="zomato-tooltip">Order on Zomato</span>
   </a>
-  <a href="http://zoma.to/r/22247880" target="_blank" rel="noopener"
-     onclick="return handleOrder(event)"
-     style="font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:2px;color:#ffffff;background:#e23744;padding:4px 10px;border-radius:2px;text-decoration:none;text-transform:uppercase;white-space:nowrap;box-shadow:0 2px 8px rgba(226,55,68,0.5);transition:background 0.2s;"
-     onmouseover="this.style.background='#c52f3a'" onmouseout="this.style.background='#e23744'">
+  <a href="http://zoma.to/r/22247880"
+     target="_blank" rel="noopener"
+     class="zf-order-label"
+     onclick="return handleOrder(event)">
     Order Now
   </a>
 </div>
