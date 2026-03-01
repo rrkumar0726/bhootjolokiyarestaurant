@@ -1219,7 +1219,7 @@ window.addEventListener('scroll', () => {
 
 /* ── ZOMATO FLOAT ── */
 .zomato-float {
-  position: fixed; bottom: 100px; left: 28px; z-index: 9997;
+  position: fixed; bottom: 28px; left: 28px; z-index: 9997;
   width: 58px; height: 58px;
   background: #e23744;
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -1255,66 +1255,31 @@ window.addEventListener('scroll', () => {
 }
 .zomato-float:hover .zomato-tooltip { opacity: 1; }
 
-/* ── WHATSAPP FLOAT ── */
-.wa-float {
-  position: fixed; bottom: 28px; left: 28px; z-index: 9997;
-  width: 58px; height: 58px; background: #25D366;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 2px 8px rgba(0,0,0,0.4);
-  text-decoration: none;
-  transition: transform 0.25s, box-shadow 0.25s;
-  animation: waPulse 2.5s ease-in-out infinite;
-}
-.wa-float:hover {
-  transform: scale(1.12);
-  box-shadow: 0 6px 28px rgba(37,211,102,0.7), 0 2px 10px rgba(0,0,0,0.5);
-  animation: none;
-}
-.wa-float svg { width: 30px; height: 30px; }
-@keyframes waPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.35); }
-  60%       { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 12px rgba(37,211,102,0); }
-}
-.wa-tooltip {
-  position: absolute; left: 66px; bottom: 50%; transform: translateY(50%);
-  background: #111; color: #f5e8d0;
-  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
-  padding: 7px 14px; border-radius: 3px; white-space: nowrap;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.2s; border: 1px solid rgba(37,211,102,0.3);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-.wa-float:hover .wa-tooltip { opacity: 1; }
 
 @media (max-width: 480px) {
   .catchy-overlay { padding: 70px 12px 12px; align-items: flex-end; justify-content: center; }
   .catchy-popup-wrap { max-width: 100%; }
-  .zomato-float { bottom: 92px; left: 20px; width: 52px; height: 52px; }
-  .zomato-float img { width: 32px; height: 32px; }
+  .zomato-float { bottom: 28px; left: 20px; width: 52px; height: 52px; }
   .zomato-tooltip { display: none; }
-  .wa-float { bottom: 20px; left: 20px; width: 52px; height: 52px; }
-  .wa-tooltip { display: none; }
 }
 </style>
 
 <!-- Zomato Float -->
-<a class="zomato-float"
-   href="http://zoma.to/r/22247880"
-   target="_blank" rel="noopener">
-  <span style="font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:26px;color:#ffffff;letter-spacing:-1px;line-height:1;user-select:none;">Z</span>
-  <span class="zomato-tooltip">Order on Zomato</span>
-</a>
+<div style="position:fixed;bottom:28px;left:28px;z-index:9997;display:flex;flex-direction:column;align-items:center;gap:5px;">
+  <a class="zomato-float"
+     href="http://zoma.to/r/22247880"
+     target="_blank" rel="noopener"
+     style="position:relative;bottom:auto;left:auto;">
+    <span style="font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:26px;color:#ffffff;letter-spacing:-1px;line-height:1;user-select:none;">Z</span>
+    <span class="zomato-tooltip">Order on Zomato</span>
+  </a>
+  <a href="http://zoma.to/r/22247880" target="_blank" rel="noopener"
+     style="font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:2px;color:#ffffff;background:#e23744;padding:4px 10px;border-radius:2px;text-decoration:none;text-transform:uppercase;white-space:nowrap;box-shadow:0 2px 8px rgba(226,55,68,0.5);transition:background 0.2s;"
+     onmouseover="this.style.background='#c52f3a'" onmouseout="this.style.background='#e23744'">
+    Order Now
+  </a>
+</div>
 
-<!-- WhatsApp Float -->
-<a class="wa-float"
-   href="https://api.whatsapp.com/send?phone=917002631513&text=Hey%20Bhoot%20Jolokia!%20%F0%9F%94%A5%20I%20just%20checked%20out%20your%20menu%20and%20I%27m%20already%20hungry.%20I%27d%20love%20to%20place%20an%20order%20%E2%80%94%20can%20you%20please%20share%20today%27s%20availability%20and%20delivery%20details%3F%20Thank%20you!"
-   target="_blank" rel="noopener">
-  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 3C8.82 3 3 8.82 3 16c0 2.38.65 4.6 1.77 6.52L3 29l6.68-1.74A13 13 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3z" fill="white"/>
-    <path d="M21.5 18.9c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.09 4.49.71.3 1.27.49 1.7.62.72.23 1.37.2 1.88.12.57-.09 1.77-.72 2.02-1.42.25-.69.25-1.28.17-1.4-.07-.12-.27-.2-.57-.34z" fill="#25D366"/>
-  </svg>
-  <span class="wa-tooltip">Chat on WhatsApp</span>
-</a>
 
 <!-- 🔥 FLAMES POPUP -->
 <div class="catchy-overlay">
