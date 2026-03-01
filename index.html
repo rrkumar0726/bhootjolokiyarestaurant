@@ -949,9 +949,9 @@ footer {
       <span class="info-icon">🕐</span>
       <span class="info-label">Hours</span>
       <div class="info-value">
-        Mon – Sun<br>
+        Mon – Sat<br>
         12:00 PM – 9:00 PM<br>
-        <span style="font-size:11px;color:var(--muted);">Open Every Day</span>
+        <span style="font-size:11px;color:var(--muted);">Closed on Sundays</span>
       </div>
     </div>
   </div>
@@ -1034,7 +1034,6 @@ window.addEventListener('scroll', () => {
      FLAMES POPUP + WHATSAPP FLOAT
 ══════════════════════════════════════ -->
 <style>
-/* ── FLAME PARTICLES ── */
 @keyframes flameRise {
   0%   { transform: translateY(0) scaleX(1)   rotate(0deg);   opacity: 0.9; }
   40%  { transform: translateY(-38px) scaleX(0.85) rotate(-4deg); opacity: 0.7; }
@@ -1067,14 +1066,11 @@ window.addEventListener('scroll', () => {
   60%      { box-shadow: 0 4px 20px rgba(255,50,0,0.5), 0 0 0 8px rgba(255,100,0,0); }
 }
 
-/* ── OVERLAY ── */
 .catchy-overlay {
   position: fixed; inset: 0; z-index: 9998;
   display: flex; align-items: flex-end; justify-content: flex-end;
   padding: 100px 28px 28px; pointer-events: none;
 }
-
-/* ── POPUP WRAPPER (holds flames + box) ── */
 .catchy-popup-wrap {
   position: relative;
   max-width: 370px; width: 100%;
@@ -1088,22 +1084,14 @@ window.addEventListener('scroll', () => {
   transform: translateY(28px) scale(0.93); opacity: 0; pointer-events: none;
   transition: transform 0.32s ease, opacity 0.26s ease;
 }
-
-/* ── FLAME ROW (top of popup) ── */
 .flame-row {
   position: relative;
   height: 54px; width: 100%;
   display: flex; align-items: flex-end; justify-content: center;
   gap: 0; overflow: visible; pointer-events: none;
 }
-.flame {
-  position: relative;
-  width: 22px; flex-shrink: 0;
-}
-.flame svg {
-  width: 100%; display: block;
-  transform-origin: bottom center;
-}
+.flame { position: relative; width: 22px; flex-shrink: 0; }
+.flame svg { width: 100%; display: block; transform-origin: bottom center; }
 .flame:nth-child(1)  svg { animation: flameRise  1.6s ease-in-out infinite 0.0s; }
 .flame:nth-child(2)  svg { animation: flameRise2 1.4s ease-in-out infinite 0.1s; }
 .flame:nth-child(3)  svg { animation: flameRise  1.5s ease-in-out infinite 0.2s; }
@@ -1120,7 +1108,6 @@ window.addEventListener('scroll', () => {
 .flame:nth-child(14) svg { animation: flameRise2 1.6s ease-in-out infinite 0.25s; }
 .flame:nth-child(15) svg { animation: flameRise  1.55s ease-in-out infinite 0.15s; }
 
-/* ── POPUP BOX ── */
 .catchy-popup {
   background: linear-gradient(175deg, #1a0400 0%, #0f0200 40%, #1c0500 70%, #0a0100 100%);
   border: 1.5px solid rgba(255,70,0,0.6);
@@ -1131,8 +1118,6 @@ window.addEventListener('scroll', () => {
   text-align: center;
   overflow: hidden;
 }
-
-/* inner ember glow */
 .catchy-popup::before {
   content: '';
   position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
@@ -1140,15 +1125,12 @@ window.addEventListener('scroll', () => {
   background: linear-gradient(90deg, transparent, #ff6600, #ffaa00, #ff6600, transparent);
   filter: blur(2px);
 }
-/* top ember edge */
 .catchy-popup::after {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, #ff2200, #ff8800, #ffcc00, #ff8800, #ff2200);
   animation: borderFlame 2s linear infinite;
 }
-
-/* ── CLOSE BTN ── */
 .catchy-close-btn {
   position: absolute; top: 9px; right: 10px;
   background: rgba(255,40,0,0.1); border: 1px solid rgba(255,60,0,0.3);
@@ -1158,15 +1140,11 @@ window.addEventListener('scroll', () => {
   border-radius: 50%; transition: all 0.2s; line-height: 1;
 }
 .catchy-close-btn:hover { color: #ff8800; background: rgba(255,60,0,0.25); border-color: #ff6600; }
-
-/* ── EMOJI ── */
 .catchy-emoji {
   font-size: 34px; display: block; margin-bottom: 10px;
   filter: drop-shadow(0 0 8px rgba(255,100,0,0.8));
   animation: popBounce 0.6s cubic-bezier(0.175,0.885,0.32,1.275) 0.2s both;
 }
-
-/* ── MAIN LINE ── */
 .catchy-main-line {
   font-family: 'Cinzel', serif; font-size: 13px;
   line-height: 1.75; color: #f0d8b0; letter-spacing: 0.3px; margin-bottom: 4px;
@@ -1178,8 +1156,6 @@ window.addEventListener('scroll', () => {
   background-clip: text; font-weight: 700;
   animation: shimmer 2.5s linear infinite;
 }
-
-/* ── DIVIDER ── */
 .catchy-divider {
   display: flex; align-items: center; gap: 8px;
   justify-content: center; margin: 10px 0 10px;
@@ -1187,14 +1163,10 @@ window.addEventListener('scroll', () => {
 .catchy-divider .dl { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,80,0,0.5)); }
 .catchy-divider .dl:last-child { background: linear-gradient(90deg, rgba(255,80,0,0.5), transparent); }
 .catchy-divider .dd { font-size: 10px; filter: drop-shadow(0 0 4px #ff6600); }
-
-/* ── SUB LINE ── */
 .catchy-sub-line {
   font-family: 'IM Fell English SC', serif; font-size: 10px;
   letter-spacing: 3px; color: #7a4820; margin-bottom: 16px;
 }
-
-/* ── ORDER BTN ── */
 .catchy-order-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(135deg, #cc2200, #ff4400, #ff6600);
@@ -1217,7 +1189,6 @@ window.addEventListener('scroll', () => {
 .catchy-order-btn:hover::before { left: 160%; }
 .catchy-order-btn .flame-icon { font-size: 14px; }
 
-/* ── ZOMATO FLOAT ── */
 .zomato-float {
   position: fixed; bottom: 28px; left: 28px; z-index: 9997;
   width: 58px; height: 58px;
@@ -1234,12 +1205,6 @@ window.addEventListener('scroll', () => {
   box-shadow: 0 6px 28px rgba(226,55,68,0.85), 0 2px 10px rgba(0,0,0,0.5);
   animation: none;
 }
-.zomato-float img {
-  width: 38px; height: 38px; object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: transform 0.25s;
-}
-.zomato-float:hover img { transform: scale(1.1); }
 @keyframes zomatoPulse {
   0%, 100% { box-shadow: 0 4px 20px rgba(226,55,68,0.6), 0 0 0 0 rgba(226,55,68,0.4); }
   60%       { box-shadow: 0 4px 20px rgba(226,55,68,0.6), 0 0 0 12px rgba(226,55,68,0); }
@@ -1254,7 +1219,6 @@ window.addEventListener('scroll', () => {
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 .zomato-float:hover .zomato-tooltip { opacity: 1; }
-
 
 @media (max-width: 480px) {
   .catchy-overlay { padding: 70px 12px 12px; align-items: flex-end; justify-content: center; }
@@ -1280,16 +1244,10 @@ window.addEventListener('scroll', () => {
   </a>
 </div>
 
-
-<!-- 🔥 FLAMES POPUP -->
+<!-- FLAMES POPUP -->
 <div class="catchy-overlay">
   <div class="catchy-popup-wrap" id="catchyPopup">
-
-    <!-- animated flame row on top -->
-    <div class="flame-row" id="flameRow">
-      <!-- 15 flame svgs generated by JS -->
-    </div>
-
+    <div class="flame-row" id="flameRow"></div>
     <div class="catchy-popup">
       <button class="catchy-close-btn" onclick="closeCatchy()">✕</button>
       <span class="catchy-emoji" id="catchyEmoji">🔥</span>
@@ -1304,13 +1262,11 @@ window.addEventListener('scroll', () => {
         <span class="flame-icon">🔥</span> Order Now
       </a>
     </div>
-
   </div>
 </div>
 
 <script>
 (function(){
-  /* ── Build flame SVGs ── */
   var fr = document.getElementById('flameRow');
   var flameColors = [
     ['#ff2200','#ff6600','#ffaa00'],
@@ -1337,7 +1293,6 @@ window.addEventListener('scroll', () => {
     fr.appendChild(d);
   }
 
-  /* ── Messages ── */
   var L=[
     {e:"🥟",m:"Your stomach wants <span class='hl'>Chicken Momos</span>.",s:"Hot, juicy, ready to order."},
     {e:"🍜",m:"Craving noodles? <span class='hl'>Chicken Chowmein</span> is waiting.",s:"Wok-tossed street style."},
@@ -1348,71 +1303,7 @@ window.addEventListener('scroll', () => {
     {e:"🌶️",m:"Feeling bold? Try <span class='hl'>Chilli Chicken Dry Fry</span>.",s:"Spicy and addictive."},
     {e:"🍜",m:"Your break deserves <span class='hl'>Veg Chowmein</span>.",s:"Fresh veggies, bold flavour."},
     {e:"🌯",m:"Nothing beats a classic <span class='hl'>Egg Roll</span>.",s:"Simple and satisfying."},
-    {e:"🍚",m:"Comfort food alert: <span class='hl'>Egg Fried Rice</span>.",s:"Hot and fluffy."},
-    {e:"🍗",m:"Crispy love: <span class='hl'>Fried Chicken</span>.",s:"Juicy inside, crunchy outside."},
-    {e:"🥟",m:"Dinner idea: <span class='hl'>Steamed Chicken Momos</span>.",s:"Soft and juicy bites."},
-    {e:"🍜",m:"Street-style <span class='hl'>Chicken Chowmein</span> is calling.",s:"Don't ignore it."},
-    {e:"🌯",m:"Grab a <span class='hl'>Veg Roll</span> and relax.",s:"Crispy and filling."},
-    {e:"🔥",m:"Spice level rising: <span class='hl'>Chilli Chicken</span>.",s:"Perfect for spice lovers."},
-    {e:"🍚",m:"Try our <span class='hl'>Special Chicken Fried Rice</span>.",s:"Extra flavour guaranteed."},
-    {e:"🥟",m:"Can't decide? Get <span class='hl'>Fried Momos</span>.",s:"Crispy perfection."},
-    {e:"🍜",m:"Lunch break = <span class='hl'>Chicken Chowmein</span> time.",s:"Fast and tasty."},
-    {e:"🌯",m:"Snack attack? Order <span class='hl'>Egg Roll</span>.",s:"Fresh and hot."},
-    {e:"🍗",m:"Golden <span class='hl'>Fried Chicken</span> is ready.",s:"Crunch in every bite."},
-    {e:"🥟",m:"Life is better with <span class='hl'>Chicken Momos</span>.",s:"Five bites of joy."},
-    {e:"🍚",m:"Simple and tasty: <span class='hl'>Veg Fried Rice</span>.",s:"Perfect for any time."},
-    {e:"🌯",m:"Hot <span class='hl'>Chicken Roll</span> coming your way.",s:"Don't wait too long."},
-    {e:"🍜",m:"Your noodles are ready: <span class='hl'>Egg Chowmein</span>.",s:"Street style taste."},
-    {e:"🌶️",m:"Spicy mood? <span class='hl'>Chilli Chicken Dry Fry</span>.",s:"Heat meets flavour."},
-    {e:"🍗",m:"Five crispy <span class='hl'>Fried Chicken</span> pieces.",s:"Perfect dinner idea."},
-    {e:"🥟",m:"Order <span class='hl'>Steamed Momos</span> tonight.",s:"Soft and delicious."},
-    {e:"🍜",m:"Hot <span class='hl'>Veg Chowmein</span> in minutes.",s:"Freshly cooked."},
-    {e:"🌯",m:"Quick bite? <span class='hl'>Egg Roll</span>.",s:"Classic street snack."},
-    {e:"🍚",m:"Dinner sorted: <span class='hl'>Egg Fried Rice</span>.",s:"Hot and satisfying."},
-    {e:"🍗",m:"Crunch time with <span class='hl'>Fried Chicken</span>.",s:"Juicy inside."},
-    {e:"🥟",m:"Craving dumplings? <span class='hl'>Chicken Momos</span>.",s:"Freshly steamed."},
-    {e:"🍜",m:"Try <span class='hl'>Special Chicken Chowmein</span>.",s:"Extra flavour."},
-    {e:"🌯",m:"Roll into happiness with <span class='hl'>Chicken Roll</span>.",s:"Fresh and hot."},
-    {e:"🔥",m:"Heat lovers choose <span class='hl'>Chilli Chicken</span>.",s:"Spicy delight."},
-    {e:"🍚",m:"Loaded <span class='hl'>Chicken Fried Rice</span>.",s:"Big flavour."},
-    {e:"🥟",m:"Crispy <span class='hl'>Fried Momos</span> tonight.",s:"Golden bites."},
-    {e:"🌯",m:"Grab a hot <span class='hl'>Veg Roll</span>.",s:"Fresh and tasty."},
-    {e:"🍗",m:"Dinner idea: <span class='hl'>Fried Chicken</span>.",s:"Perfect crunch."},
-    {e:"🥟",m:"Five pieces of <span class='hl'>Chicken Momos</span>.",s:"Pure comfort food."},
-    {e:"🍜",m:"Late night craving? <span class='hl'>Egg Chowmein</span>.",s:"Hot and tasty."},
-    {e:"🌯",m:"Quick hunger fix: <span class='hl'>Chicken Roll</span>.",s:"Crispy paratha wrap."},
-    {e:"🍚",m:"Classic <span class='hl'>Veg Fried Rice</span>.",s:"Light yet filling."},
-    {e:"🌶️",m:"Turn up the heat with <span class='hl'>Chilli Chicken</span>.",s:"Spicy goodness."},
-    {e:"🍗",m:"Crispy <span class='hl'>Fried Chicken</span> craving?",s:"Order now."},
-    {e:"🥟",m:"Warm <span class='hl'>Steamed Momos</span> are ready.",s:"Soft bites."},
-    {e:"🍜",m:"Nothing beats <span class='hl'>Chicken Chowmein</span>.",s:"Street style noodles."},
-    {e:"🌯",m:"Grab a fresh <span class='hl'>Egg Roll</span>.",s:"Hot and delicious."},
-    {e:"🍚",m:"Fluffy <span class='hl'>Egg Fried Rice</span>.",s:"Perfect comfort meal."},
-    {e:"🍗",m:"Crunch lovers choose <span class='hl'>Fried Chicken</span>.",s:"Golden perfection."},
-    {e:"🥟",m:"Snack time? <span class='hl'>Fried Momos</span>.",s:"Crispy bites."},
-    {e:"🍜",m:"Hot <span class='hl'>Veg Chowmein</span> ready.",s:"Fresh and tasty."},
-    {e:"🌯",m:"Street favourite: <span class='hl'>Chicken Roll</span>.",s:"Classic flavour."},
-    {e:"🍚",m:"Loaded <span class='hl'>Special Fried Rice</span>.",s:"Big bowl happiness."},
-    {e:"🌶️",m:"Spice lovers welcome.",s:"Try <span class='hl'>Chilli Chicken</span>."},
-    {e:"🍗",m:"Five golden <span class='hl'>Fried Chicken</span> pieces.",s:"Crunchy goodness."},
-    {e:"🥟",m:"Hot <span class='hl'>Chicken Momos</span> ready.",s:"Soft and juicy."},
-    {e:"🍜",m:"Classic <span class='hl'>Egg Chowmein</span>.",s:"Street style taste."},
-    {e:"🌯",m:"Fresh <span class='hl'>Veg Roll</span> today.",s:"Crispy delight."},
-    {e:"🍚",m:"Dinner sorted: <span class='hl'>Chicken Fried Rice</span>.",s:"Loaded bowl."},
-    {e:"🍗",m:"Crispy <span class='hl'>Fried Chicken</span> ready.",s:"Order now."},
-    {e:"🥟",m:"Golden <span class='hl'>Fried Momos</span>.",s:"Perfect snack."},
-    {e:"🍜",m:"Hot <span class='hl'>Chicken Chowmein</span>.",s:"Wok tossed flavour."},
-    {e:"🌯",m:"Classic <span class='hl'>Egg Roll</span>.",s:"Street snack favourite."},
-    {e:"🍚",m:"Comfort meal: <span class='hl'>Egg Fried Rice</span>.",s:"Hot and fresh."},
-    {e:"🌶️",m:"Spicy mood? <span class='hl'>Chilli Chicken</span>.",s:"Bold flavour."},
-    {e:"🍗",m:"Crispy outside, juicy inside.",s:"That's <span class='hl'>Fried Chicken</span>."},
-    {e:"🥟",m:"Soft <span class='hl'>Steamed Momos</span>.",s:"Hot dumplings."},
-    {e:"🍜",m:"Your noodles are calling.",s:"<span class='hl'>Chicken Chowmein</span>."},
-    {e:"🌯",m:"Snack time hero: <span class='hl'>Chicken Roll</span>.",s:"Fresh and filling."},
-    {e:"🍚",m:"Flavour packed <span class='hl'>Special Fried Rice</span>.",s:"Order today."},
-    {e:"🍗",m:"Golden crunch: <span class='hl'>Fried Chicken</span>.",s:"Hot and ready."},
-    {e:"🥟",m:"Five hot <span class='hl'>Chicken Momos</span>.",s:"Order now."},
-    {e:"🍜",m:"Street style <span class='hl'>Veg Chowmein</span>.",s:"Freshly cooked."}
+    {e:"🍚",m:"Comfort food alert: <span class='hl'>Egg Fried Rice</span>.",s:"Hot and fluffy."}
   ];
 
   var popup  = document.getElementById('catchyPopup');
