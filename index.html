@@ -552,7 +552,7 @@ footer {
     <li><a href="#menu">Menu</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="http://zoma.to/r/22247880" target="_blank" class="nav-order-btn">Order Online</a></li>
+    <li><a href="http://zoma.to/r/22247880" target="_blank" class="nav-order-btn" onclick="return handleOrder(event)">Order Online</a></li>
   </ul>
 </nav>
 
@@ -580,7 +580,7 @@ footer {
     </div>
     <div class="hero-btns">
       <a href="#menu" class="btn-primary">View Menu</a>
-      <a href="http://zoma.to/r/22247880" target="_blank" class="btn-secondary">Order Online</a>
+      <a href="http://zoma.to/r/22247880" target="_blank" class="btn-secondary" onclick="return handleOrder(event)">Order Online</a>
     </div>
   </div>
   <div class="scroll-ind">
@@ -906,7 +906,7 @@ footer {
   <div class="sec-eyebrow" style="margin-bottom:14px;">Online Delivery</div>
   <div class="sec-title">Order on Zomato</div>
   <p>Delivery in 30–40 mins · ₹40–₹60 delivery fee</p>
-  <a href="http://zoma.to/r/22247880" target="_blank" class="zomato-btn">
+  <a href="http://zoma.to/r/22247880" target="_blank" class="zomato-btn" onclick="return handleOrder(event)">
     <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
       <circle cx="24" cy="24" r="24" fill="#e23744"/>
       <text x="24" y="30" text-anchor="middle" fill="white" font-size="18" font-family="Arial" font-weight="bold">Z</text>
@@ -983,7 +983,7 @@ footer {
     <a href="#home">Home</a>
     <a href="#menu">Menu</a>
     <a href="#reviews">Reviews</a>
-    <a href="http://zoma.to/r/22247880" target="_blank">Order Online</a>
+    <a href="http://zoma.to/r/22247880" target="_blank" onclick="return handleOrder(event)">Order Online</a>
     <a href="https://maps.app.goo.gl/p2sfCSnLcReMi1aw6" target="_blank">Get Directions</a>
     <a onclick="document.getElementById('phoneModal').classList.add('open')" style="cursor:pointer;">Call Us</a>
   </div>
@@ -1233,11 +1233,13 @@ window.addEventListener('scroll', () => {
   <a class="zomato-float"
      href="http://zoma.to/r/22247880"
      target="_blank" rel="noopener"
+     onclick="return handleOrder(event)"
      style="position:relative;bottom:auto;left:auto;">
     <span style="font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:26px;color:#ffffff;letter-spacing:-1px;line-height:1;user-select:none;">Z</span>
     <span class="zomato-tooltip">Order on Zomato</span>
   </a>
   <a href="http://zoma.to/r/22247880" target="_blank" rel="noopener"
+     onclick="return handleOrder(event)"
      style="font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:2px;color:#ffffff;background:#e23744;padding:4px 10px;border-radius:2px;text-decoration:none;text-transform:uppercase;white-space:nowrap;box-shadow:0 2px 8px rgba(226,55,68,0.5);transition:background 0.2s;"
      onmouseover="this.style.background='#c52f3a'" onmouseout="this.style.background='#e23744'">
     Order Now
@@ -1258,7 +1260,7 @@ window.addEventListener('scroll', () => {
         <div class="dl"></div>
       </div>
       <div class="catchy-sub-line" id="catchySub"></div>
-      <a href="http://zoma.to/r/22247880" target="_blank" class="catchy-order-btn" onclick="closeCatchy()">
+      <a href="http://zoma.to/r/22247880" target="_blank" class="catchy-order-btn" onclick="closeCatchy(); return handleOrder(event)">
         <span class="flame-icon">🔥</span> Order Now
       </a>
     </div>
@@ -1348,6 +1350,86 @@ window.addEventListener('scroll', () => {
     }
   });
 })();
+</script>
+<!-- ── CLOSED MODAL ── -->
+<div class="modal-overlay" id="closedModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="max-width:360px;">
+    <div style="font-size:48px;margin-bottom:12px;">🔒</div>
+    <div class="modal-title" style="font-size:18px;margin-bottom:6px;">Restaurant is Closed</div>
+    <div id="closedMsg" style="font-family:'Cinzel',serif;font-size:12px;color:#8a7060;letter-spacing:1px;line-height:1.9;margin-bottom:24px;"></div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="http://zoma.to/r/22247880" target="_blank"
+         style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#e23744;color:white;text-decoration:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;border-radius:2px;transition:background 0.3s;"
+         onmouseover="this.style.background='#c52f3a'" onmouseout="this.style.background='#e23744'">
+        Order Anyway on Zomato
+      </a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('closedModal').classList.remove('open')" style="margin-top:16px;">✕ CLOSE</button>
+  </div>
+</div>
+
+<script>
+// ── RESTAURANT OPEN/CLOSED LOGIC ──
+// Hours: Mon–Sat, 12:00 PM – 9:00 PM (IST = UTC+5:30)
+// Sunday: Closed all day
+
+function isRestaurantOpen() {
+  // Get current IST time
+  var now = new Date();
+  var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  var ist = new Date(utc + (5.5 * 3600000));
+
+  var day  = ist.getDay();   // 0=Sun, 1=Mon ... 6=Sat
+  var hour = ist.getHours();
+  var min  = ist.getMinutes();
+  var timeVal = hour * 60 + min; // minutes since midnight
+
+  var openTime  = 12 * 60;      // 12:00 PM = 720 min
+  var closeTime = 21 * 60;      // 9:00 PM  = 1260 min
+
+  if (day === 0) return false;  // Sunday closed
+  return timeVal >= openTime && timeVal < closeTime;
+}
+
+function getNextOpeningInfo() {
+  var now = new Date();
+  var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  var ist = new Date(utc + (5.5 * 3600000));
+
+  var day  = ist.getDay();
+  var hour = ist.getHours();
+  var min  = ist.getMinutes();
+  var timeVal = hour * 60 + min;
+  var openTime = 12 * 60;
+
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  // If Sunday — next open is Monday 12 PM
+  if (day === 0) {
+    return 'We are closed on Sundays.<br>We reopen on <strong style="color:#ff6600;">Monday at 12:00 PM</strong>.';
+  }
+
+  // Before opening today (Mon–Sat)
+  if (timeVal < openTime) {
+    return 'We open today at <strong style="color:#ff6600;">12:00 PM</strong>.<br>Please visit us after noon!';
+  }
+
+  // After closing today (Mon–Sat)
+  // Find next open day (skip Sunday)
+  var nextDay = (day + 1) % 7;
+  if (nextDay === 0) nextDay = 1; // skip Sunday → Monday
+  return 'We are closed for today.<br>We reopen on <strong style="color:#ff6600;">' + days[nextDay] + ' at 12:00 PM</strong>.';
+}
+
+function handleOrder(e) {
+  if (isRestaurantOpen()) {
+    return true; // allow link to open Zomato
+  }
+  e.preventDefault();
+  document.getElementById('closedMsg').innerHTML = getNextOpeningInfo();
+  document.getElementById('closedModal').classList.add('open');
+  return false;
+}
 </script>
 </body>
 </html>
