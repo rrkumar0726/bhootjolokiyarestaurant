@@ -467,90 +467,142 @@ section { padding: 100px 40px; }
 }
 .modal-close:hover { color: var(--ember); }
 
-/* ── DEVELOPER MODAL ── */
+/* ── DEVELOPER MODAL (MATCHING IMAGE) ── */
 .dev-modal-box {
-  max-width: 480px;
-  width: 90%;
-  padding: 36px 32px 32px;
+  background: #0f1115;
+  border: 1px solid #2a2e37;
+  border-radius: 12px;
+  max-width: 460px;
+  width: 92%;
+  padding: 40px 32px;
   position: relative;
-  border: 1.5px solid rgba(255,102,0,0.4);
-  box-shadow: 0 0 50px rgba(255,60,0,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  text-align: center;
 }
 .dev-modal-close-x {
-  position: absolute; top: 12px; right: 14px;
-  background: rgba(255,40,0,0.1); border: 1px solid rgba(255,60,0,0.3);
-  color: #ffaa80; font-size: 14px; cursor: pointer;
-  width: 28px; height: 28px;
+  position: absolute; top: 16px; right: 18px;
+  background: #1a1d24; border: 1px solid #2a2e37;
+  color: #a0a5b1; font-size: 16px; cursor: pointer;
+  width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 50%; transition: all 0.2s; line-height: 1;
+  font-weight: 300;
 }
-.dev-modal-close-x:hover { color: #fff; background: rgba(255,60,0,0.3); border-color: var(--fire); }
-.dev-modal-icon { font-size: 40px; margin-bottom: 10px; display: block; filter: drop-shadow(0 0 12px rgba(255,120,0,0.6)); }
+.dev-modal-close-x:hover { color: #fff; background: #2a2e37; border-color: #3a3f4a; }
+
+.dev-img-avatar {
+  width: 90px; height: 90px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
 .dev-modal-title {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 16px; letter-spacing: 2px;
-  background: linear-gradient(135deg, var(--gold), var(--ember));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  margin-bottom: 4px;
-}
-.dev-modal-sub {
-  font-family: 'IM Fell English SC', serif;
-  font-size: 10px; letter-spacing: 4px;
-  color: #b89870; margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px; letter-spacing: 6px;
+  color: #a0a5b1;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 .dev-modal-name {
-  font-family: 'Cinzel', serif;
-  font-size: 20px; font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  font-size: 32px; font-weight: 800;
   color: #ffffff;
-  letter-spacing: 1.5px;
-  margin-bottom: 18px;
-  text-shadow: 0 0 20px rgba(255,150,50,0.4);
+  letter-spacing: 0px;
+  margin-bottom: 12px;
+  line-height: 1.1;
 }
-.dev-modal-name span {
-  background: linear-gradient(135deg, #ffcc66, #ff6600);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+.dev-modal-name span { color: #f5b041; }
+
+.dev-modal-sub-wrap {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin-bottom: 32px;
 }
+.dev-modal-sub-wrap .line { width: 30px; height: 2px; background: #f5b041; }
+.dev-modal-sub {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px; font-weight: 400;
+  color: #a0a5b1;
+  letter-spacing: 0.5px;
+}
+
 .dev-modal-contacts {
-  display: flex; flex-direction: column; gap: 10px;
-  margin-bottom: 22px;
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 24px;
 }
 .dev-modal-contact-row {
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(255,102,0,0.05);
-  border: 1px solid rgba(255,102,0,0.15);
-  padding: 12px 16px;
+  display: flex; align-items: center; gap: 16px;
+  background: #171a21;
+  border: 1px solid #2a2e37;
+  border-radius: 8px;
+  padding: 14px 20px;
   text-decoration: none;
-  transition: all 0.25s;
+  transition: all 0.2s;
   text-align: left;
 }
 .dev-modal-contact-row:hover {
-  background: rgba(255,102,0,0.12);
-  border-color: rgba(255,150,50,0.5);
-  transform: translateX(4px);
+  background: #1c2029;
+  border-color: #3a3f4a;
+  transform: translateY(-1px);
 }
-.dev-modal-contact-row .dcr-icon {
-  font-size: 18px; width: 26px; text-align: center; flex-shrink: 0;
+.dev-modal-contact-row .dcr-icon-wrap {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
+.dev-modal-contact-row .dcr-icon-wrap svg { width: 22px; height: 22px; fill: #fff; }
+/* Specific icon backgrounds */
+.dcr-phone { background: #e53950; }
+.dcr-email { background: #3b82f6; }
+.dcr-linkedin { background: #0a66c2; }
+
 .dev-modal-contact-row .dcr-text {
   font-family: 'Lato', sans-serif;
-  font-size: 13px; color: #ffffff;
-  letter-spacing: 0.3px; word-break: break-word;
+  font-size: 16px; font-weight: 700; color: #ffffff;
+  letter-spacing: 0.2px; word-break: break-all;
 }
 .dev-modal-contact-row .dcr-label {
-  font-family: 'Cinzel', serif;
-  font-size: 8px; letter-spacing: 2px;
-  color: #c08040; display: block; margin-bottom: 2px;
-  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px; letter-spacing: 2px;
+  color: #6b7280; display: block; margin-bottom: 4px;
+  text-transform: uppercase; font-weight: 600;
 }
+
 .dev-modal-cta {
-  font-family: 'IM Fell English SC', serif;
-  font-size: 12px; line-height: 1.8;
-  color: #e0c8a8;
-  background: rgba(255,102,0,0.07);
-  border: 1px dashed rgba(255,102,0,0.35);
-  padding: 14px 18px;
+  font-family: 'Lato', sans-serif;
+  background: transparent;
+  border: 1px solid #f5b041;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: background 0.2s;
+  text-align: left;
 }
-.dev-modal-cta strong { color: #ffaa44; font-weight: 700; }
+.dev-modal-cta:hover { background: rgba(245,176,65,0.08); }
+.dev-modal-cta .cta-text {
+  display: flex; align-items: center; gap: 16px;
+}
+.dev-modal-cta .cta-icon {
+  color: #f5b041;
+}
+.dev-modal-cta .cta-icon svg { width: 28px; height: 28px; fill: currentColor; }
+.dev-modal-cta .cta-content {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.dev-modal-cta .cta-sub {
+  font-size: 12px; letter-spacing: 1.5px; color: #a0a5b1; text-transform: uppercase; font-weight: 600;
+}
+.dev-modal-cta .cta-main {
+  font-size: 15px; color: #f5b041; font-weight: 700; letter-spacing: 0.5px;
+}
+.dev-modal-cta .cta-arrow {
+  color: #f5b041; font-size: 24px; font-weight: 300;
+}
+
 
 /* ── MAP ── */
 .map-section { background: var(--char); padding: 0; }
@@ -760,8 +812,15 @@ footer {
   .app-banner { padding: 30px 20px; }
   .dev-credit-contact { flex-direction: column; gap: 6px; }
   .dev-credit-contact .sep { display: none; }
-  .dev-modal-box { padding: 32px 20px 26px; }
-  .dev-modal-name { font-size: 17px; }
+  
+  /* Mobile Developer Modal Adjustments */
+  .dev-modal-box { padding: 30px 20px; }
+  .dev-modal-name { font-size: 26px; }
+  .dev-modal-contact-row { padding: 12px 16px; }
+  .dev-modal-contact-row .dcr-text { font-size: 14px; }
+  .dev-modal-cta { flex-direction: column; text-align: center; gap: 12px; }
+  .dev-modal-cta .cta-text { flex-direction: column; }
+  .cta-arrow { transform: rotate(90deg); }
 }
 </style>
 <link rel="icon" type="image/png" href="https://github.com/rrkumar0726/bhootjolokiyarestaurant/blob/firstBranch/images3/ogLogo.png?raw=true">
@@ -788,32 +847,69 @@ footer {
   </div>
 </div>
 
-<!-- ── DEVELOPER INFO MODAL ── -->
+<!-- ── DEVELOPER INFO MODAL (MATCHING IMAGE) ── -->
 <div class="modal-overlay" id="devModal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal-box dev-modal-box">
     <button class="dev-modal-close-x" onclick="document.getElementById('devModal').classList.remove('open')">✕</button>
-    <span class="dev-modal-icon">👨‍💻</span>
+    
+    <!-- Developer Illustration -->
+    <img class="dev-img-avatar" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Technologist%20Light%20Skin%20Tone.png" alt="Developer Avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%23171a21\'/><text x=\'50\' y=\'55\' font-size=\'40\' text-anchor=\'middle\' fill=\'%23f5b041\'>👨‍💻</text></svg>'">
+    
     <div class="dev-modal-title">Developed By</div>
-    <div class="dev-modal-sub">✦ Web & App Developer ✦</div>
-    <div class="dev-modal-name"><span>Ram Ranjeet Kumar</span></div>
+    <div class="dev-modal-name">Ram Ranjeet <span>Kumar</span></div>
+    
+    <div class="dev-modal-sub-wrap">
+      <div class="line"></div>
+      <div class="dev-modal-sub">Web & App Developer</div>
+      <div class="line"></div>
+    </div>
+
     <div class="dev-modal-contacts">
+      <!-- Phone -->
       <a href="tel:+919570084038" class="dev-modal-contact-row">
-        <span class="dcr-icon">📞</span>
-        <span class="dcr-text"><span class="dcr-label">Phone</span>+91 9570084038</span>
+        <div class="dcr-icon-wrap dcr-phone">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
+        <div class="dcr-text">
+          <span class="dcr-label">Phone</span>
+          +91 9570084038
+        </div>
       </a>
+      <!-- Email -->
       <a href="mailto:ramranjeet726@gmail.com" class="dev-modal-contact-row">
-        <span class="dcr-icon">✉️</span>
-        <span class="dcr-text"><span class="dcr-label">Email</span>ramranjeet726@gmail.com</span>
+        <div class="dcr-icon-wrap dcr-email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div class="dcr-text">
+          <span class="dcr-label">Email</span>
+          ramranjeet726@gmail.com
+        </div>
       </a>
+      <!-- LinkedIn -->
       <a href="https://www.linkedin.com/in/iamramranjeetkuamr/" target="_blank" rel="noopener" class="dev-modal-contact-row">
-        <span class="dcr-icon">🔗</span>
-        <span class="dcr-text"><span class="dcr-label">LinkedIn</span>linkedin.com/in/iamramranjeetkuamr</span>
+        <div class="dcr-icon-wrap dcr-linkedin">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </div>
+        <div class="dcr-text">
+          <span class="dcr-label">LinkedIn</span>
+          linkedin.com/in/iamramranjeetkuamr
+        </div>
       </a>
     </div>
-    <div class="dev-modal-cta">
-      Need a website, Android app, or iOS app?<br>
-      <strong>Contact me for your custom project!</strong>
-    </div>
+
+    <!-- CTA Section -->
+    <a href="mailto:ramranjeet726@gmail.com" class="dev-modal-cta">
+      <div class="cta-text">
+        <div class="cta-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div class="cta-content">
+          <span class="cta-sub">Need a website, Android app, or iOS app?</span>
+          <span class="cta-main">Contact me for your custom project!</span>
+        </div>
+      </div>
+      <div class="cta-arrow">→</div>
+    </a>
   </div>
 </div>
 
